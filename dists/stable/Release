@@ -1,0 +1,8 @@
+Origin: Git Cascade
+Label: Git Cascade
+Suite: stable
+Codename: stable
+Version: 1.0.0
+Architectures: all amd64
+Components: main
+Description: Git Cascade APT Repository
