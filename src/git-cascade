@@ -1,0 +1,82 @@
+#!/bin/bash
+
+auto_push=0
+if [ "$1" = "--push" ]; then
+    auto_push=1
+    echo "🚀 Mode push automatique activé (--push)"
+fi
+
+get_branches() {
+    git branch --format='%(refname:short)' | grep -v HEAD
+}
+
+echo "🎯 Sélectionne la base:"
+base=$(get_branches | fzf --prompt="Base > " --height=10 --reverse --bind='ctrl-y:accept' || true)
+base=${base:-master}
+echo "  → Base: $base"
+
+chain=()
+prev=$base
+
+while true; do
+    echo ""
+    echo "⛓️ Sélectionne la branche suivante:"
+    echo "   (Entrée=ajouter, Ctrl+Y=finir et lancer, Échap=annuler)"
+    
+    next=$( (echo "✅ LANCER"; get_branches | while read b; do 
+        [[ " $base ${chain[*]} " =~ " $b " ]] || echo "$b"
+    done) | fzf --prompt="$prev -> " --height=12 --reverse --bind='ctrl-y:accept' || true)
+    
+    [ -z "$next" ] && { echo "❌ Annulé"; exit 0; }
+    [ "$next" = "✅ LANCER" ] && break
+    
+    chain+=("$next")
+    prev=$next
+    echo "  → Chaîne: $base -> ${chain[*]}"
+done
+
+[ ${#chain[@]} -eq 0 ] && { echo "⚠️ Aucune branche"; exit 0; }
+
+echo ""
+echo "🚀 Merge cascade: $base -> ${chain[*]}"
+[ $auto_push -eq 1 ] && echo "   (avec push automatique)"
+read -p "Confirmer? [Y/n] " confirm
+[[ "$confirm" =~ ^[Nn]$ ]] && { echo "❌ Annulé"; exit 0; }
+
+prev=$base
+for branch in "${chain[@]}"; do
+    echo ""
+    echo "🔀 git checkout $branch && git pull && git merge $prev"
+    git checkout "$branch"
+    git pull || echo "⚠️ Pull failed or no remote"
+    
+    if ! git merge "$prev" --no-edit; then
+        echo ""
+        echo "💥 CONFLIT sur $branch !"
+        echo ""
+        echo "👉 Résous les conflits dans tes fichiers"
+        echo "👉 git add . && git commit"
+        echo ""
+        
+        while [ -f "$(git rev-parse --git-dir)/MERGE_HEAD" ]; do
+            read -p "⏳ Appuie sur Entrée quand le merge est terminé (ou 'abort'): " status
+            if [ "$status" = "abort" ]; then
+                git merge --abort
+                echo "❌ Merge annulé sur $branch"
+                exit 1
+            fi
+        done
+        
+        echo "✅ Conflit résolu sur $branch"
+    fi
+    
+    if [ $auto_push -eq 1 ]; then
+        echo "📤 git push origin $branch"
+        git push origin "$branch" || echo "⚠️ Push failed (maybe no remote?)"
+    fi
+    
+    prev=$branch
+done
+
+echo ""
+echo "✅ Cascade terminée!"

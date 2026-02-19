@@ -1,0 +1,11 @@
+Package: git-cascade
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: git, fzf
+Maintainer: Victor Smits <victor.smits@facilecomm.com>
+Description: Interactive git branch cascading merge tool
+ Tool for merging a chain of git branches in cascade
+ with interactive fzf interface. Allows selecting branches
+ and handles merge conflicts interactively.
