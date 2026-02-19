@@ -3,6 +3,13 @@ Label: Git Cascade
 Suite: stable
 Codename: stable
 Version: 1.0.0
+Date: jeu., 19 févr. 2026 09:14:53 +0000
 Architectures: all amd64
 Components: main
 Description: Git Cascade APT Repository
+MD5Sum:
+ 471d341e0a6c6b9106012d2826189d8d 355 main/binary-amd64/Packages
+ cb7456d8e838da297b8be3cea101bb7d 293 main/binary-amd64/Packages.gz
+SHA256:
+ 4592951c3ee3c18a7f89ce79bbeb414a8d8958253ec660b82797fdb610259e15 355 main/binary-amd64/Packages
+ 8bd7f8610f2c10ed8039753746667dec251b5c08d21339078f939000eee22663 293 main/binary-amd64/Packages.gz

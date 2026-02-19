@@ -4,7 +4,7 @@ Architecture: all
 Maintainer: Victor Smits <victor.smits@facilecomm.com>
 Depends: git, fzf
 Filename: pool/main/git-cascade_1.0.0_all.deb
-Size: 1452
-MD5sum: 00000000000000000000000000000000
-SHA256: 0000000000000000000000000000000000000000000000000000000000000000
+Size: 1732
+MD5sum: 1cc0b8d940ae21adad29d3031da7b6d5
+SHA256: 07be47a1f0959b91d2861f66f3502ea2d154fb1ef538a904b9eb81945f0907a9
 Description: Interactive git branch cascading merge tool
