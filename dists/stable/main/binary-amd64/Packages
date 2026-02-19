@@ -1,0 +1,10 @@
+Package: git-cascade
+Version: 1.0.0
+Architecture: all
+Maintainer: Victor Smits <victor.smits@facilecomm.com>
+Depends: git, fzf
+Filename: pool/main/git-cascade_1.0.0_all.deb
+Size: 1452
+MD5sum: 00000000000000000000000000000000
+SHA256: 0000000000000000000000000000000000000000000000000000000000000000
+Description: Interactive git branch cascading merge tool
