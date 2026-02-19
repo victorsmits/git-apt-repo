@@ -3,7 +3,7 @@ Label: Git Cascade
 Suite: stable
 Codename: stable
 Version: 1.0.0
-Date: jeu., 19 févr. 2026 09:14:53 +0000
+Date: Wed, 19 Feb 2025 10:00:00 +0000
 Architectures: all amd64
 Components: main
 Description: Git Cascade APT Repository
