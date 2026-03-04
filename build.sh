@@ -40,7 +40,7 @@ mv ${PKG_NAME}_${VERSION}_all.deb pool/main/
 
 # 🗂️ Update Packages index
 cd pool/main
-dpkg-scanpackages . /dev/null > ../../dists/stable/main/binary-amd64/Packages 2>/dev/null || \
+dpkg-scanpackages . /dev/null 2>/dev/null | sed "s|Filename: ./|Filename: pool/main/|" > ../../dists/stable/main/binary-amd64/Packages || \
   cat > ../../dists/stable/main/binary-amd64/Packages << PKGEOF
 Package: ${PKG_NAME}
 Version: ${VERSION}

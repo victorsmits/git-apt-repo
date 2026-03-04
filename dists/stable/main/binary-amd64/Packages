@@ -3,11 +3,11 @@ Version: 1.0.1
 Architecture: all
 Maintainer: Victor Smits <victor.smits@facilecomm.com>
 Depends: git, fzf
-Filename: ./git-cascade_1.0.1_all.deb
-Size: 1708
-MD5sum: 1ca5fd0e205cf85ebd03016fb0aa35aa
-SHA1: 953581a909bdf49203be384b7b59e13717104dc7
-SHA256: f3098c2a32079ce23300ead29a15a3bd00c7715dec77107dee40c29037fd69b7
+Filename: pool/main/git-cascade_1.0.1_all.deb
+Size: 1704
+MD5sum: 47d24d7e2a8c77d5793d2adec420f578
+SHA1: e12f257823d2f61151f7ef1a1372e17bc0c79261
+SHA256: 4f13f76be4a68bfaf8596036ede6bbfeb32d8a173c3bd7310aac2cb340ef4dc0
 Section: utils
 Priority: optional
 Description: Interactive git branch cascading merge tool
