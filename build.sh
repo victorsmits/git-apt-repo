@@ -62,7 +62,7 @@ Label: Git Cascade
 Suite: stable
 Codename: stable
 Version: ${VERSION}
-Date: $(date -R)
+Date: $(LC_ALL=C date -u '+%a, %d %b %Y %H:%M:%S +0000')
 Architectures: all amd64
 Components: main
 Description: Git Cascade APT Repository
