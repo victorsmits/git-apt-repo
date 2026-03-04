@@ -44,6 +44,10 @@ read -p "Confirmer? [Y/n] " confirm
 [[ "$confirm" =~ ^[Nn]$ ]] && { echo "❌ Annulé"; exit 0; }
 
 prev=$base
+
+echo "🔀 git checkout $base && git pull"
+git checkout "$base" && git pull
+
 for branch in "${chain[@]}"; do
     echo ""
     echo "🔀 git checkout $branch && git pull && git merge $prev"
