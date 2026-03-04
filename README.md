@@ -55,6 +55,23 @@ Ou tape `abort` pour annuler le merge en cours.
 - `Ctrl+Y` : Finir la sélection et lancer
 - `Échap` : Annuler
 
+## Développement
+
+### Faire une release
+
+1. **Modifier la version** dans `build.sh` (ligne 4: `VERSION="X.X.X"`)
+2. **Lancer le build** :
+   ```bash
+   ./build.sh
+   ```
+3. **Commit et push** :
+   ```bash
+   git add .
+   git commit -m "Release vX.X.X"
+   git push
+   ```
+4. GitHub Pages publie automatiquement le repo APT
+
 ## Désinstallation
 
 ```bash
