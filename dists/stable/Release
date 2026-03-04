@@ -2,7 +2,7 @@ Origin: Git Cascade
 Label: Git Cascade
 Suite: stable
 Codename: stable
-Version: 1.0.0
+Version: 1.0.1
 Date: Thu, 19 Feb 2026 10:13:34 +0000
 Architectures: all amd64
 Components: main
